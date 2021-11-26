@@ -10,6 +10,7 @@ import(
   "strings"
   "math/rand"
   "encoding/json"
+  "io/ioutil"
 )
 
 var factList []string
@@ -30,11 +31,11 @@ func RFHandler(writer http.ResponseWriter, request *http.Request){
 }
 
 func main(){
-  /*port := os.Getenv("PORT")
+  port := os.Getenv("PORT")
   if port == "" {
 		log.Fatal("$PORT must be set")
-	}*/port:= "80"
-  dat, err := os.ReadFile("facts.txt")
+	}
+  dat, err := ioutil.ReadFile("facts.txt")
   if err!= nil{
     panic(err)
   }
